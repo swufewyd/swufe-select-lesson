@@ -1,0 +1,44 @@
+<style type="text/css">
+  @charset "utf-8";
+
+
+/*login*/
+/*.login{padding:1px 0 0 0;padding:150px 0 0 0;}*/
+#submit{border:none;font-weight:bold;color:#FFF;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow: #CCC 0px 0px 5px;-moz-box-shadow: #CCC 0px 0px 5px;box-shadow: #CCC 0px 0px 5px;background: #31b6e7;cursor: pointer;}
+#submit:hover{background:#ff9229;}
+#submit{padding:6px 20px;}
+
+</style>
+
+
+<div class="modal-header" style="text-align:center;">
+    <h3 class="modal-title">请注册</h3>
+</div>
+
+<div ng-controller="SregCtrl" class="modal-body">
+  <form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="username" class="col-sm-2 col-md-offset-1 control-label">用户名</label>
+    <div class="col-sm-6">
+      <input type="text" ng-model="usernamesignup" class="form-control" id="username" placeholder="请输入用户名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 col-md-offset-1 control-label">密码</label>
+    <div class="col-sm-6">
+      <input type="password" ng-model="passwordsignup" class="form-control" id="inputPassword" placeholder="请输入密码">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inviteCode" class="col-sm-2 col-md-offset-1 control-label">邀请码</label>
+    <div class="col-sm-6">
+      <input type="text" ng-model="invitecodesignup" class="form-control" id="inviteCode" placeholder="请输入4位大写邀请码">
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="button" ng-click="sreg()" id="submit" class="col-md-offset-5" tabindex="3" value="注册">
+  </div>
+</form>
+
+
+</div>

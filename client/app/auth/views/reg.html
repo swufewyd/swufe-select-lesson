@@ -1,0 +1,94 @@
+<!-- <link rel="stylesheet" ng-href="common/views/css/login.css"> -->
+<style type="text/css">
+    input.ng-invalid {border: 1px solid red ! important ;}
+    input.ng-valid {border: 1px solid green ! important ;}
+    input.ng-pristine {border: 1px solid rgb(178, 178, 178) ! important ;}
+
+</style>
+<div class="container">
+<!-- <form novalidate class="form-horizontal" ng-submit="postReg()" name="regForm" role="form" style="padding-left:230px;margin-top:70px">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-4">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="email" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-4">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="password" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <div class="checkbox">
+        <label>
+          <input  type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <button type="submit" ng-disabled="regForm.$invalid" class="btn btn-default">Sign in</button>
+    </div>
+    {{regForm.$invalid}}||
+    {{regForm.$dirty}}
+  </div>
+</form> -->
+
+    <section>
+        <div id="container_demo" >
+
+            <div id="wrapper">
+                <div id="login">
+                    <form novalidate ng-submit="postReg()" autocomplete="on" name="regForm">
+                    <h1>总得有个账户吧！</h1>
+                        <p>
+                                    <label for="usernamesignup" class="uname" data-icon="u"></label>
+                                    <input id="usernamesignup" name="usernamesignup" required ng-minlength=3 type="text" placeholder="用户名(由字母、数字、下划线组成)" ng-model="usernamesignup" ensure-unique />
+                                </p>
+
+
+
+                                <alert id="userAlert" ng-show="regForm.usernamesignup.$error.minlength && !regForm.usernamesignup.$pristine" type="{{userAlert.type}}">{{userAlert.msg}}</alert>
+                                <alert ng-show="regForm.usernamesignup.$error.ensureUnique && !regForm.usernamesignup.$pristine" type="{{usernameExistAlert.type}}">{{usernameExistAlert.msg}}</alert>
+                                <alert ng-show="regForm.usernamesignup.$valid && !regForm.usernamesignup.$pristine" type="{{usernameExistOk.type}}">{{usernameExistOk.msg}}</alert>
+
+                                <p>
+                                    <label for="emailsignup" class="youmail" data-icon="e" > </label>
+                                    <input id="emailsignup" name="emailsignup" required type="email" placeholder="常用邮箱" ng-model="emailsignup"/>
+                                </p>
+
+                                <alert ng-show="regForm.emailsignup.$invalid && !regForm.emailsignup.$pristine" type="{{emailAlert.type}}">{{emailAlert.msg}}</alert>
+
+                                <alert ng-show="regForm.emailsignup.$valid && !regForm.emailsignup.$pristine" type="{{emailOk.type}}">{{emailOk.msg}}</alert>
+
+                                <!-- <p ng-show="regForm.emailsignup.$invalid && !regForm.emailsignup.$pristine" class="alert alert-danger" role="alert">请输入正确的邮箱格式，例如wyd@163.com</p> -->
+                                <!-- <p ng-show="regForm.emailsignup.$valid && !regForm.emailsignup.$pristine" class="alert alert-success" role="alert">邮箱格式无误</p>
+                                <p> -->
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p"></label>
+                                    <input id="passwordsignup" name="passwordsignup" required type="password" placeholder="请输入密码" ng-model="passwordsignup"/>
+                                </p>
+                                <p>
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p"></label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" ng-model="passwordsignup_confirm" required type="password" placeholder="请再次输入密码确认" equal-to="passwordsignup" />
+                                </p>
+                                <p ng-show="passwordsignup!=passwordsignup_confirm && !regForm.passwordsignup_confirm.$pristine " class="alert alert-danger" role="alert">两次输入密码不一致</p>
+                                <p ng-show="passwordsignup==passwordsignup_confirm && !regForm.passwordsignup_confirm.$pristine " class="alert alert-success" role="alert">两次输入密码一致</p>
+
+                                <br />
+                                <p class="">
+                  <!-- <input type="submit" disabled="regForm.$invalid" value="注册" /> -->
+                  <button type="submit" ng-disabled="regForm.$invalid" ng-class="{'btn':true,'btn-block':true,'btn-success':regForm.$valid}" >注册</button>
+                </p>
+                                <p class="change_link">
+                  已经有账户了 ?
+                  <a ui-sref="login"> 去登录吧 </a>
+                </p>
+                    </form>
+                </div>
+{{regForm.$invalid}}
+        </div>
+    </section>
+</div>

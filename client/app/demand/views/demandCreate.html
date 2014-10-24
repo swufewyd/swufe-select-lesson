@@ -1,0 +1,116 @@
+<!-- <div ng-include src="'app/demand/views/demandMain.html'"></div> -->
+<style type="text/css">
+a:hover{text-decoration:none}
+	.round-button {
+	display: inline-block;
+	position: relative;
+
+	margin: 10px;
+	padding: 0 20px;
+	text-align: center;
+	font: bold 12px/25px Arial, sans-serif;
+
+	text-shadow: 1px 1px 1px rgba(255,255,255, .22);
+
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+
+	-webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	-moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+
+	-webkit-transition: all 0.15s ease;
+	-moz-transition: all 0.15s ease;
+	-o-transition: all 0.15s ease;
+	-ms-transition: all 0.15s ease;
+	transition: all 0.15s ease;
+
+
+	color: #515151;
+
+	background: #EEEEEE; /* Old browsers */
+	background: -moz-linear-gradient(top,  #EEEEEE 0%, #8a8a8a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEEEEE), color-stop(100%,#8a8a8a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #EEEEEE 0%,#8a8a8a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #EEEEEE 0%,#8a8a8a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #EEEEEE 0%,#8a8a8a 100%); /* IE10+ */
+	background: linear-gradient(top,  #EEEEEE 0%,#8a8a8a 100%); /* W3C */
+}
+</style>
+
+
+<div class="row">
+<div style=" border:5px solid red;text-align:center;" class="col-md-2">
+	<input type="image" src="assets/images/head.png" ng-click="test()" />
+	<a href="" class="round-button">需求层级标识</a>
+	<a href="" class="round-button">源需求标识</a>
+
+</div>
+
+<div style=" border:5px solid red;" class="col-md-10">
+
+
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label style="padding-right:0" for="demandTitle" class="col-md-2 control-label">标题</label>
+		<div class="col-md-9">
+			<input type="text" class="form-control" id="demandTitle" placeholder="请输入需求卡片的标题"></div>
+	</div>
+	<div class="form-group">
+		<div ng-repeat="background in backgrounds">
+			<label  style="padding-right:0" for="{{background.id}}" class="col-md-2 control-label">{{background.serial}}</label>
+
+			<div class="col-md-9">
+				<input ng-model="background.content" type="text" class="form-control" id="{{background.id}}" placeholder="背景原因分点描述">
+			</div>
+			<div ng-if="$index>0" class="col-md-1">
+				<button class="btn btn-xs btn-danger" ng-click="delBackground($index)">删除</button>
+			</div>
+		</div>
+
+		<div style="margin-top:10px" class="col-md-2 col-md-offset-2">
+			<button ng-click="addBackground()" class="btn btn-xs btn-block">增加</button>
+		</div>
+	</div>
+	<div class="form-group">
+		<div ng-repeat="demand in demands">
+			<label  style="padding-right:0" for="{{demand.id}}" class="col-md-2 control-label">{{demand.serial}}</label>
+
+			<div class="col-md-9">
+				<input ng-model="demand.content" type="text" class="form-control" id="{{demand.id}}" placeholder="需求分点描述">
+			</div>
+			<div ng-if="$index>0" class="col-md-1">
+				<button class="btn btn-xs btn-danger" ng-click="delDemand($index)">删除</button>
+			</div>
+		</div>
+
+		<div style="margin-top:10px" class="col-md-2 col-md-offset-2">
+			<button ng-click="addDemand()" class="btn btn-xs btn-block">增加</button>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label style="padding-right:0;margin-top:5px" class="col-md-2 control-label">卡片分发给</label>
+		<div class="col-md-2" style="text-align:center;">
+			<input type="image" src="assets/images/head.png" ng-click="openPeopleAssign()" popover-placement="bottom" popover="点我设置指派人" popover-trigger="mouseenter" />
+		</div>
+		<div style="margin-top:5px" class="col-md-6">
+			<input type="text" class="form-control"  placeholder="选中的人">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label style="padding-right:0;" class="col-md-2 control-label">完成日期</label>
+
+		<div class="col-md-6">
+			<div style="display:inline-block; min-height:290px;">
+			        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
+			    </div>
+		</div>
+
+	</div>
+</form>
+
+</div>
+

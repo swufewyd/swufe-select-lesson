@@ -1,0 +1,40 @@
+<!-- <link rel="stylesheet" ng-href="common/views/css/login.css"> -->
+
+<div class="container">
+            <!-- Codrops top bar -->
+
+
+    <section>
+        <div id="container_demo" >
+
+            <div id="wrapper">
+                <div id="login">
+                    <form ng-submit="postLogin()"  autocomplete="on" name="loginForm">
+                    <h1>进击吧，皮卡丘！</h1>
+                        <p>
+                            <label for="username" class="uname" data-icon="u" > </label>
+                            <input id="username" name="username" required="required" type="text" placeholder="用户名" ng-model="username"/>
+                        </p>
+                        <p>
+                            <label for="password" class="youpasswd" data-icon="p"></label>
+                            <input id="password" name="password" required="required" type="password" placeholder="密码" ng-model="password" />
+                        </p>
+                        <p class="keeplogin">
+          <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
+          <label for="loginkeeping">记住我</label>
+        </p>
+                        <p class="login button">
+                            <input type="submit" value="登录"/>
+        </p>
+                        <p class="change_link">
+          还没有账户 ?
+          <a ui-sref="reg" class="to_register">注册</a>
+        </p>
+                    </form>
+
+                </div>
+        </div>
+        <!-- <p>{{form_data}}</p> -->
+      </div>
+    </section>
+</div>

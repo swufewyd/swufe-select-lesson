@@ -1,0 +1,46 @@
+<style type="text/css">
+  @charset "utf-8";
+
+
+/*login*/
+/*.login{padding:1px 0 0 0;padding:150px 0 0 0;}*/
+#submit{border:none;font-weight:bold;color:#FFF;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow: #CCC 0px 0px 5px;-moz-box-shadow: #CCC 0px 0px 5px;box-shadow: #CCC 0px 0px 5px;background: #31b6e7;cursor: pointer;}
+#submit:hover{background:#ff9229;}
+#submit{padding:6px 20px;}
+
+#submit2{border:none;font-weight:bold;color:white;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow: #CCC 0px 0px 5px;-moz-box-shadow: #CCC 0px 0px 5px;box-shadow: #CCC 0px 0px 5px;background: #31b6e7;cursor: pointer;}
+#submit2:hover{background:yellow;}
+#submit2{padding:6px 20px;}
+</style>
+
+
+<div class="modal-header" style="text-align:center;">
+    <h3 class="modal-title">请登录</h3>
+</div>
+
+<div ng-controller="SloginCtrl" class="modal-body">
+
+
+
+  <form ng-submit="slogin()" name="sloginForm" class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="username" class="col-sm-2 col-md-offset-1 control-label">用户名</label>
+    <div class="col-sm-6">
+      <input type="text" ng-model="username" class="form-control" id="username" placeholder="请输入用户名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 col-md-offset-1 control-label">密码</label>
+    <div class="col-sm-6">
+      <input type="password" ng-model="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+    </div>
+  </div>
+
+  <div style="margin-left:10px" class="form-group">
+    <input type="submit" id="submit" class="col-md-offset-4" tabindex="3" value="登录">
+    <input type="button" ng-click="sreg()" id="submit2"  tabindex="3" value="注册">
+  </div>
+  </form>
+
+
+</div>

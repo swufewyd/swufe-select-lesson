@@ -1,0 +1,37 @@
+ <div ng-include src="'app/common/views/main-nav.html'"></div>
+
+ <div class="container-fluid">
+ 	<div class="row">
+ 		<div class="col-md-2">
+
+ 			<div class="list-group">
+				<a ui-sref="{{link.href}}" ng-repeat="link in links" class="list-group-item">
+					{{link.text}}
+				</a>
+ 				<!-- <a href="#" class="list-group-item"> <i class="fa fa-comment-o"></i>
+ 					Lorem ipsum
+ 				</a>
+
+ 				<a href="#" class="list-group-item"> <i class="fa fa-folder-open-o"></i>
+ 					Lorem ipsum
+ 					<span class="badge">14</span>
+ 				</a>
+ 				<a href="#" class="list-group-item">
+ 					<i class="fa fa-bar-chart-o"></i>
+ 					Lorem ipsumr
+ 					<span class="badge">14</span>
+ 				</a>
+ 				<a href="#" class="list-group-item">
+ 					<i class="fa fa-envelope"></i>
+ 					Lorem ipsum
+ 				</a> -->
+ 			</div>
+ 		</div>
+
+ 		<div class="col-md-10" style=" border:5px solid yellow;">
+ 			<!-- <div class="slide-animate" ng-include="template.url"></div> -->
+ 			<div ui-view></div>
+ 		</div>
+
+ 	</div>
+ </div>

@@ -1,0 +1,40 @@
+{
+  "name": "whiteboard",
+  "version": "0.0.1",
+  "main": "server/app.js",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "body-parser": "~1.0.0",
+    "composable-middleware": "^0.3.0",
+    "compression": "~1.0.1",
+    "cookie-parser": "~1.0.1",
+    "ejs": "~0.8.4",
+    "errorhandler": "~1.0.0",
+    "express": "~4.0.0",
+    "express-session": "~1.0.2",
+    "lodash": "~2.4.1",
+    "method-override": "~1.0.0",
+    "morgan": "~1.0.0",
+    "mysql": "git://github.com/felixge/node-mysql",
+    "redis": "^0.12.0",
+    "socket.io": "~1.0.6",
+    "socketio-jwt": "^2.0.2",
+    "static-favicon": "~1.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-livereload": "^2.1.0",
+    "karma": "^0.12.19",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-jasmine": "^0.1.5",
+    "protractor": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

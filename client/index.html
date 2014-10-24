@@ -1,0 +1,104 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="app/auth/views/css/login.css">
+      <link rel="stylesheet" href="vendor/sweetalert/lib/sweet-alert.css">
+
+    <!-- welcome页面用的CSS -->
+    <link  href="assets/welcome/freelancer.css"  rel="stylesheet"  type="text/css">
+
+    <link  href="assets/welcome/animate.css"  rel="stylesheet"  type="text/css">
+
+    <link  href="assets/welcome/custom.css"  rel="stylesheet"  type="text/css">
+
+    <link  rel="stylesheet"  href="assets/welcome/markdown-highligth.css">
+
+    <!-- welcome页面用的CSS -->
+    <style type="text/css">
+      a{text-decoration: none !important}
+    </style>
+      <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+    <!-- <link rel="stylesheet" href="app/app.css"> -->
+      <!-- injector:css -->
+      <!-- <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/main/main.css"> -->
+      <!-- endinjector -->
+    <!-- endbuild -->
+  </head>
+  <body ng-app="app-main">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <!-- <div ng-view=""></div> -->
+    <div ui-view></div>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- // <script src="socket.io/socket.io.js"></script> -->
+    <!-- build:js(client) app/vendor.js -->
+      <!-- bower:js -->
+      <script src="vendor/jquery/dist/jquery.js"></script>
+      <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="vendor/angular/angular.js"></script>
+      <!--<script src="vendor/angular-resource/angular-resource.js"></script>
+        <script src="vendor/angular-cookies/angular-cookies.js"></script>
+      // <script src="vendor/angular-sanitize/angular-sanitize.js"></script> -->
+      <!-- // <script src="vendor/angular-route/angular-route.js"></script> -->
+      <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="vendor/sweetalert/lib/sweet-alert.min.js"></script>
+      <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+       <!-- <script src="vendor/lodash/dist/lodash.compat.js"></script>
+      // <script src="vendor/angular-socket-io/socket.js"></script> -->
+      <!-- endbower -->
+    <!-- endbuild -->
+        <!-- build:js({.tmp,client}) app/app.js -->
+        <script src="app.js"></script>
+          <!-- injector:js -->
+          <script src="app/auth/services/SessionService.js"></script>
+          <script src="app/auth/controllers/LoginCtrl.js"></script>
+          <script src="app/home/controllers/HomeCtrl.js"></script>
+          <script src="app/auth/controllers/LoginCtrl.js"></script>
+          <script src="app/auth/controllers/SloginCtrl.js"></script>
+          <script src="app/auth/controllers/LogoutCtrl.js"></script>
+          <script src="app/auth/controllers/RegCtrl.js"></script>
+          <script src="app/auth/controllers/SregCtrl.js"></script>
+          <script src="app/demand/controllers/DemandMainCtrl.js"></script>
+          <script src="app/demand/controllers/DemandCreateCtrl.js"></script>
+          <script src="app/demand/controllers/PersonSelectCtrl.js"></script>
+          <script src="app/auth/directives/EqualPwdDirect.js"></script>
+          <script src="app/auth/directives/EnsureUniqueDirect.js"></script>
+          <script src="app/common/controllers/MainNavCtrl.js"></script>
+          <script src="app/common/services/MainNavbarService.js"></script>
+          <script src="app/lesson/controllers/LessonCtrl.js"></script>
+          <script src="app/lesson/filters/FuzzySearchFilter.js"></script>
+          <script src="app/lesson/filters/PackagePraiseFilter.js"></script>
+          <script src="app/lesson/filters/CommentsAmountFilter.js"></script>
+          <script src="app/welcome/controllers/WelcomeCtrl.js"></script>
+
+          <!--<script src="app/main/main.js"></script>-->
+          <!-- <script src="components/navbar/navbar.controller.js"></script>
+          // <script src="components/socket/socket.service.js"></script> -->
+          <!-- endinjector -->
+        <!-- endbuild -->
+</body>
+</html>

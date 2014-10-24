@@ -1,0 +1,142 @@
+<div ng-include src="'app/common/views/main-nav.html'"></div>
+
+<style type="text/css">
+	.comment-editable{
+		/*width: 310px;*/
+		resize: none;
+		 min-height: 40px;
+		max-height: 150px;
+		line-height: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 3px;
+		outline: 0;
+		border: 1px solid #a0b3d6;
+		font-size: 18px;
+		word-wrap: break-word;
+		overflow-x: hidden;
+		overflow-y:auto;
+		margin-left: 20px
+	}
+</style>
+
+<div class="container">
+<!-- 搜索 -->
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label  for="searchLesson">课程名：</label>
+    <input type="text" ng-model="searchLesson" class="form-control" id="searchLesson" placeholder="例如：经济学">
+  </div>
+  <div class="form-group">
+    <label  for="searchTeacher">老师名：</label>
+    <input type="text" ng-model="searchTeacher" class="form-control" id="searchTeacher" placeholder="例如：何宇">
+  </div>
+
+  <button  ng-click="searchFuzzy()" class="btn btn-default">Search</button>
+  <i class="icon-music"></i>
+</form>
+<!-- 搜索 -->
+
+ 	<div class="row " ng-repeat="lesson in lessons ">
+		<div class="col-md-12 page-header">
+			<h2>{{lesson.name}}</h2>
+
+
+			 <button class="btn btn-default" ng-show="toggleTeacherArr[$index]" ng-click="toggleTeacherArr[$index]=!toggleTeacherArr[$index]">展开授课老师</button>
+			<button class="btn btn-default" ng-show="!toggleTeacherArr[$index]" ng-click="toggleTeacherArr[$index]=!toggleTeacherArr[$index]">收起授课老师</button>
+
+
+
+
+			<div collapse="toggleTeacherArr[$parent.$index]" class="row" ng-repeat="teacher in lesson.teacher_info ">
+			<hr width="90%" />
+				<div class="col-md-12">
+					<blockquote>
+					<h4>{{teacher.teacher_name}},&nbsp;&nbsp;{{teacher.academy}}</h4>
+					</blockquote>
+
+				</div>
+				<div class="col-md-12">
+					<a ng-click="praiseLesson($parent.$index,$index)" class="btn"><i class="icon-thumbs-up"></i></a>{{teacher.praise|PackagePraise}}&nbsp;&nbsp;|<a class="btn" ng-show="toggleTeacherInfoArr[$parent.$index][$index]" ng-click="toggleTeacherInfoArr[$parent.$index][$index]=!toggleTeacherInfoArr[$parent.$index][$index];toggleCommentArr[$parent.$index][$index]=true">详情</a><a class="btn" ng-show="!toggleTeacherInfoArr[$parent.$index][$index]" ng-click="toggleTeacherInfoArr[$parent.$index][$index]=!toggleTeacherInfoArr[$parent.$index][$index]">收起详情</a>| <a class="btn" ng-show="toggleCommentArr[$parent.$index][$index]" ng-click="listComment($parent.$index,$index);toggleTeacherInfoArr[$parent.$index][$index]=true" >{{teacher.comments|CommentsAmount}}评论</a><a class="btn" ng-show="!toggleCommentArr[$parent.$index][$index]" ng-click="toggleCommentArr[$parent.$index][$index]=!toggleCommentArr[$parent.$index][$index]">收起评论</a>
+				</div>
+				<div collapse="toggleTeacherInfoArr[$parent.$index][$index]" class="col-md-12">
+					<dl class="">
+					  <dt>学分:</dt>
+					  <dd>{{teacher.score}}</dd>
+					  <dt>上课时间:</dt>
+					  <dd>{{teacher.time}}</dd>
+					  <dt>课程性质:</dt>
+					  <dd>{{teacher.property}}</dd>
+					</dl>
+				</div>
+				<div collapse="toggleCommentArr[$parent.$index][$index]" class="col-md-12">
+					<!-- 还木有。。 -->
+
+					<div class="row">
+						<div ng-repeat="comment in teacher.comments">
+							<div class="col-md-12">
+								<h4>{{comment.user_from}}</h4>
+								<div class="row">
+									<div class="col-md-10">
+										{{comment.content}}
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-10">
+										{{comment.time|date:'y-MM-dd HH:mm:ss'}}
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<textarea class="col-md-6 comment-editable" ng-model="comments[$parent.$index][$index]"></textarea>
+						<!-- <div ng-model="test" class="col-md-6 comment-editable" contenteditable=true>
+						</div> -->
+						<div class="col-md-2">
+							<button ng-click="submitComment($parent.$index,$index)" class="btn btn-primary">评论</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+ 	</div>
+
+	<div class="row ">
+		<pagination total-items="bigTotalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" ng-change="pageChanged()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页"></pagination>
+	</div>
+</div>
+
+
+
+<!-- <table class="table">
+	<caption>lessons</caption>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>学期</th>
+			<th>课程代码</th>
+			<th>课程名</th>
+			<th>课程性质</th>
+			<th>开课学院</th>
+			<th>任课老师</th>
+			<th>学分</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="lesson in lessons | FuzzySearch:searchString">
+			<td>{{lesson.id}}</td>
+			<td>{{lesson.term}}</td>
+			<td>{{lesson.code}}</td>
+			<td>{{lesson.name}}</td>
+			<td>{{lesson.property}}</td>
+			<td>{{lesson.academy}}</td>
+			<td>{{lesson.teacher}}</td>
+			<td>{{lesson.score}}</td>
+		</tr>
+	</tbody>
+</table> -->
+
+
